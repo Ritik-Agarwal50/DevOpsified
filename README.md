@@ -1,22 +1,59 @@
-<!-- @format -->
+# README.md
+
+## Overview
+
+This project is containerized using Docker and deployed on AWS EKS using Kubernetes. The setup includes a multi-stage Dockerfile for efficient image building and Kubernetes manifests for deployment, services, and ingress.
+
+## Prerequisites
+
+Before you begin, ensure you have the following tools installed:
+
+- **Docker:** For containerization.
+- **kubectl:** CLI for working with Kubernetes clusters.
+- **AWS CLI:** CLI for interacting with AWS services. Configure it using your AWS access key.
+- **eksctl:** CLI for working with EKS clusters.
 
 ## Steps
 
-- Containerization
-  1. Understand the project flow like hoe the project works, on which port project is running etc
-  2. Build multi stage docker file (that is goos practices)
-- Kubernetes manifest
-  1.  create deployment.yml script to ddeploy the project
-  2.  create services.yml script
-  3.  crate ingress.ymll services
-  4.  deploy project on aws eks using below command
-      - Prerequisites
-        - kubectl (CLI for working woth kubernetes cluster)
-        - awscli (CLI use to work with aws. You need to config your awscli using access key for this check docs)
-        - ekscli (CLI use to work with eks)
+### 1. Containerization
 
-      <h4> This is use to create EKS cluster <h4>
-      ```eksctl create cluster --name demo-cluster --region <enter your region like ap-south-1>   ```
-      <h4> This is use to delete EKS cluster <h4>
-      ``` eksctl delete cluster --name demo-cluster --region <enter your region which u used above> ```
-   5. 
+1. **Understand the Project Flow**
+   - Determine how the project works.
+   - Identify the port the project runs on.
+
+2. **Build a Multi-Stage Dockerfile**
+   - Multi-stage builds help optimize the image size and improve build performance.
+
+### 2. Kubernetes Manifests
+
+1. **Create `deployment.yml` Script**
+   - Define the deployment configuration for the project.
+
+2. **Create `services.yml` Script**
+   - Define the service configuration for the project.
+
+3. **Create `ingress.yml` Script**
+   - Define the ingress configuration for the project.
+
+### 3. Deploy the Project on AWS EKS
+
+To deploy the project on AWS EKS, follow these steps:
+
+1. **Install Prerequisites**
+   - Ensure `kubectl`, `AWS CLI`, and `eksctl` are installed and configured.
+
+2. **Create an EKS Cluster**
+   - Use the following command to create an EKS cluster:
+     ```sh
+     eksctl create cluster --name demo-cluster --region <enter your region like ap-south-1>
+     ```
+
+3. **Apply Kubernetes Manifests**
+   - Use `kubectl apply -f` command to deploy the `deployment.yml`, `services.yml`, and `ingress.yml` files.
+
+4. **Delete the EKS Cluster**
+   - Use the following command to delete the EKS cluster:
+     ```sh
+     eksctl delete cluster --name demo-cluster --region <enter your region which you used above>
+     ```
+
