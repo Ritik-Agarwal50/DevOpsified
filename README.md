@@ -91,7 +91,7 @@ To deploy the project on AWS EKS, follow these steps:
       ```sh
       helm install web-app ./web-app-chart
       ```
-8. **Implemeting CI/CD**
+8. **Implement CI/CD**
    - CI
       - Using Github Actions
       - Build and unit test
@@ -100,4 +100,4 @@ To deploy the project on AWS EKS, follow these steps:
       - update Helm
    - CD
       - Use GitOps and ArgoCD 
-      - Pull the helm cahrt and publish it to the kubernetes.
+      - Pull the helm chart and publish it to the kubernetes.
