@@ -56,4 +56,28 @@ To deploy the project on AWS EKS, follow these steps:
      ```sh
      eksctl delete cluster --name demo-cluster --region <enter your region which you used above>
      ```
+5. **Nginx Ingress controler Config**
+    Ingress controller is bascially a Go lang program which will look at you ingress reosurces and  it will create load balance as per the ingress resources.
 
+   - Use this to deply Nginx Ingress controller
+      ```sh
+      kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/aws/deploy.yaml
+      ```
+6. **Grab the Address of ingress and bind it to the respective IP address**
+   - Use this to fetch the Ingress Address:
+      ```sh
+      kubectl get ing
+      ```
+   - Use this to get IP address:
+     ```sh
+      nslookup <put the ingress address>
+      ```
+   - Use this to do DNS mapping:
+     ```sh
+     sudo vim /etc/host
+     ```
+   - Bind the IP with the a host name like <go-web-app.local>
+   - After completing these all process you access your app on your specific hostname.
+
+7. **Now create Helm chart creation**
+   - 
