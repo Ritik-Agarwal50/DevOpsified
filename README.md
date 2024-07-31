@@ -80,4 +80,24 @@ To deploy the project on AWS EKS, follow these steps:
    - After completing these all process you access your app on your specific hostname.
 
 7. **Now create Helm chart creation**
-   - 
+   - Helm will automate all your deployments.
+   - Initialize helm using: 
+    ```sh
+     helm create <name like - web-app-chart>
+     ```
+   - Delet all the template file and copy all the manifest file to template folder.
+   - Update values.yml file so that your deployments can fetch the values dynamically.
+   - Use this command to deploy all the resources:
+      ```sh
+      helm install web-app ./web-app-chart
+      ```
+8. **Implemeting CI/CD**
+   - CI
+      - Using Github Actions
+      - Build and unit test
+      - Static code analysis
+      - create docker and push docker image
+      - update Helm
+   - CD
+      - Use GitOps and ArgoCD 
+      - Pull the helm cahrt and publish it to the kubernetes.
