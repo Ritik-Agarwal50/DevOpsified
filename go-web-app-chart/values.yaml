@@ -1,12 +1,16 @@
-replicaCount : 1
+
+replicaCount: 1
 image:
-  repository: samm69/web-app
+  repository: abhishekf5/go-web-app
   pullPolicy: IfNotPresent
   tag: "v1"
 
 ingress:
-  enabled: true
-  classname: ""
+  enabled: false
+  className: ""
   annotations: {}
   hosts:
-    - host: web-app.local
+    - host: go-web-app.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
